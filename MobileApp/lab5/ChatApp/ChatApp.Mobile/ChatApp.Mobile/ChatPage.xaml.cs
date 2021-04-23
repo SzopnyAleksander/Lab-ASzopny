@@ -49,7 +49,7 @@ namespace ChatApp.Mobile
             Messages.Insert(0, obj);
         }
 
-        private void BtnSend_Clicked(object sender, EventArgs e)
+        private async void BtnSend_Clicked(object sender, EventArgs e)
         {
             var message = txtMessage.Text;
             if (string.IsNullOrEmpty(message))
