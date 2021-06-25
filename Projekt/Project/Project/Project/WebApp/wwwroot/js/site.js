@@ -2,7 +2,7 @@
     var txtMessage = $('#txtMessage')  
     var btnSend = $('#btnSend') 
     var listMessages = $('#listMessages') 
-    var connection = new signalR.HubConnectionBuilder().withUrl('/chathub').build();
+    var connection = new signalR.HubConnectionBuilder().withUrl('/chat').build();
     var userName = $('#userName').val();
 
     $(btnSend).click(function () {
@@ -40,7 +40,7 @@
 
     connection.on('UserJoined', function (userName) {
         $(listMessages).prepend('<li class="font-weight-bold text-success">User ' + userName
-            + 'joined to the conversation.</li > ')
+            + ' joined to the conversation.</li > ')
 
     })
 

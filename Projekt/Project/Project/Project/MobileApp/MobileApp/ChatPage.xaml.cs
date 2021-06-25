@@ -28,7 +28,7 @@ namespace MobileApp
             btnPhoto.Clicked += BtnPhoto_Clicked;
             lvMessages.ItemsSource = Messages;
 
-            hubConnection = new HubConnectionBuilder().WithUrl("http://192.168.0.106:5000/chathub").Build();
+            hubConnection = new HubConnectionBuilder().WithUrl("https://webappweb20210624210720.azurewebsites.net/chathub").Build();
 
             hubConnection.On<UserChatMessage>(Consts.RECEIVE_MESSAGE, ReceiveMessage_Event);
             hubConnection.On<string>(Consts.USER_JOINED, UserJoined_Event);
