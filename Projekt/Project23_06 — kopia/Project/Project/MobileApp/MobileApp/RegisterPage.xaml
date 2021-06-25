@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="MobileApp.RegisterPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="DimGray">
+            <Grid>
+                <!-- background -->
+                <StackLayout Padding="0" Margin="0" HorizontalOptions="FillAndExpand">
+                    <Frame HeightRequest="200" BackgroundColor="DarkOliveGreen" Padding="0" Margin="0">
+                        <Image Source="https://images.pexels.com/photos/1526790/pexels-photo-1526790.jpeg" Aspect="AspectFill" />
+                    </Frame>
+                </StackLayout>
+                <StackLayout Padding="0" Margin="10,150,10,0" HorizontalOptions="FillAndExpand">
+                    <Frame  BackgroundColor="White" HeightRequest="500" HasShadow="True" Padding="0" >
+
+                        <StackLayout>
+
+                            <!-- login -->
+                            <StackLayout Margin="30,20,0,10">
+                                <Label Text="REGISTER" TextColor="Black" FontSize="25" HorizontalOptions="CenterAndExpand" />
+                            </StackLayout>
+
+                            <StackLayout Padding="0" Margin="20,0">
+                                <!-- login -->
+                                <Frame BackgroundColor="Transparent"  Margin="20,0,20,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                            <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"/>
+                                        </Frame>
+
+                                        <Entry x:Name="txtLogin" Placeholder="User name" TextColor="DarkOliveGreen" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    </StackLayout>
+
+                                </Frame>
+                                <!-- email -->
+                                <Frame BackgroundColor="Transparent"  Margin="20,0,20,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                            <Image Source="https://image.flaticon.com/icons/png/512/552/552486.png" Aspect="AspectFill" Margin="0"/>
+                                        </Frame>
+
+                                        <Entry x:Name="txtEmail" Placeholder="Email" TextColor="DarkOliveGreen" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0">
+                                            <Entry.Behaviors>
+                                                <xct:EmailValidationBehavior />
+                                            </Entry.Behaviors>
+                                        </Entry>
+                                    </StackLayout>
+                                </Frame>
+                                <!-- password -->
+                                <Frame BackgroundColor="Transparent"  Margin="20,0,20,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                            <Image Source="https://images.all-free-download.com/images/graphicthumb/lock_icon_6813906.jpg" Aspect="AspectFill" Margin="0"/>
+                                        </Frame>
+
+                                        <Entry x:Name="txtPassword" Placeholder="Password" IsPassword="True" TextColor="DarkOliveGreen" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    </StackLayout>
+                                </Frame>
+                                <!-- confirm password -->
+                                <Frame BackgroundColor="Transparent"  Margin="20,0,20,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                            <Image Source="https://images.all-free-download.com/images/graphicthumb/lock_icon_6813906.jpg" Aspect="AspectFill" Margin="0"/>
+                                        </Frame>
+
+                                        <Entry x:Name="txtPasswordConfirm" Placeholder="Confirm Password" IsPassword="True" TextColor="DarkOliveGreen" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    </StackLayout>
+                                </Frame>
+                                <!-- button -->
+                                <Button x:Name="btnSignUp" Text="SIGN UP" Margin="20,30,20,5"  BackgroundColor="ForestGreen" TextColor="White" CornerRadius="30" />
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                    <!-- do not have acc -->
+                                    <Label Text="Already have account?" Margin="0,12,0,0" TextColor="DarkGray" FontSize="Small"/>
+                                    <Button x:Name="btnLoginPage" Text="SIGN IN"   BackgroundColor="White" TextColor="ForestGreen" CornerRadius="30" />
+                                </StackLayout>
+
+
+                            </StackLayout>
+
+
+                        </StackLayout>
+
+                    </Frame>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

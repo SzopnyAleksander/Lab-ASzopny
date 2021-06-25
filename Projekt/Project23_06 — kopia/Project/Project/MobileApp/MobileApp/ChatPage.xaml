@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.ChatPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="White" HeightRequest="500" HasShadow="True" Padding="0" >
+            <ListView x:Name="lvMessages">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout BackgroundColor="#eee" Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                      
+                                            <Label Text="{Binding TimeStampString}" FontSize="Small" TextColor="DarkBlue"/>
+                                            <Label Text="{Binding Username}" FontSize="Small" TextColor="Green"/>
+                                            <Label Text="{Binding Message}" FontSize="Small" TextColor="Black"/>
+                                        
+                                    </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </Frame>
+            <StackLayout Orientation="Horizontal" BackgroundColor="LightGray">
+                <Frame BackgroundColor="White"  Margin="10,20,5,20" Padding="0" HorizontalOptions="FillAndExpand" HasShadow="False" CornerRadius="30">
+                    <Entry x:Name="txtMassage" Placeholder="  Type message..."></Entry>
+                </Frame>
+                <Button x:Name="btnSend" Text="SEND" Margin="0,20,10,20"  BackgroundColor="ForestGreen" TextColor="White" CornerRadius="30" />
+                <Button x:Name="btnPhoto" Text="PHOTO"  Margin="0,20,10,20"  BackgroundColor="ForestGreen" TextColor="White" CornerRadius="30"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
