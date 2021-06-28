@@ -13,6 +13,7 @@ using static Xamarin.Forms.Button.ButtonContentLayout;
 
 namespace MobileApp
 {
+
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ChatPage : ContentPage
     {
@@ -27,7 +28,7 @@ namespace MobileApp
             btnSend.Clicked += BtnSend_Clicked;
             btnPhoto.Clicked += BtnPhoto_Clicked;
             lvMessages.ItemsSource = Messages;
-
+            
             hubConnection = new HubConnectionBuilder().WithUrl("https://webappweb20210624210720.azurewebsites.net/chathub").Build();
 
             hubConnection.On<UserChatMessage>(Consts.RECEIVE_MESSAGE, ReceiveMessage_Event);
@@ -37,7 +38,8 @@ namespace MobileApp
             hubConnection.SendAsync(Consts.REGISTER_USER, userName);
 
         }
-        
+
+
         //photo mode
         private async void BtnPhoto_Clicked(object sender, EventArgs e)
         {
@@ -49,13 +51,15 @@ namespace MobileApp
             
         }
 
-        private void UserJoined_Event(string obj)
+        private async void UserJoined_Event(string obj)
         {
+
             Messages.Insert(0, new UserChatMessage
             {
-                Message = "User joined to the conversation.",
+                Message = "User joined to the meeting.",
                 Username = userName,
-                TimeStamp = DateTime.Now
+                TimeStamp = DateTime.Now,
+                Location = await Lokalizacja_Main.lokacja()
             });
         }
 
@@ -66,7 +70,7 @@ namespace MobileApp
 
         private async void BtnSend_Clicked(object sender, EventArgs e)
         {
-            var message = txtMassage.Text;
+            var message = txtMassage.Text; 
 
             if (string.IsNullOrWhiteSpace(message))
             {
@@ -77,9 +81,11 @@ namespace MobileApp
             await hubConnection.SendAsync(Consts.SEND_MESSAGE, new UserChatMessage
             {
                 Message = message,
-                Username = userName
-            });
+                Username = userName,
+                Location = await Lokalizacja_Main.lokacja()
+        });
    
         }
+        
     }
 }

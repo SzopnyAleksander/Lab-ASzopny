@@ -9,8 +9,10 @@
         var userMessage = $(txtMessage).val();
 
         connection.invoke('SendMessage', {
+
             userName: userName,
-            message: userMessage
+            message: userMessage,
+            
         }).catch(function (error) {
             alert("Can't send the message.");
             console(error);
@@ -31,7 +33,7 @@
 
     connection.on('ReceiveMessage', function (obj) {
         $(listMessages).prepend('<li>('
-            + obj.timeStampString + ') '
+            + obj.timeStampString + ')<li>'
             + '<span class="font-weight-bold"> ' + obj.username
             + '</span>: ' +obj.message
             + '</li>')
